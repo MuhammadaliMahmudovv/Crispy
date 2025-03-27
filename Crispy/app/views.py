@@ -14,3 +14,6 @@ def news(request):
 
 def contact(request):
     return render(request, 'app/contact.html')
+
+def news_detail(request):
+    return render(request, 'app/news_detail.html') 
