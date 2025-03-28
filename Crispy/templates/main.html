@@ -142,24 +142,25 @@
 
                 <div class="modal-body d-flex flex-column justify-content-center">
                     <div class="booking">
-
-                        <form class="booking-form row" role="form" action="#" method="post">
+                        {% for i in table_reservation %}
+                        <form class="booking-form row" role="form" action="#" method="POST">
+                            {% crf_token %}
                             <div class="col-lg-6 col-12">
-                                <label for="name" class="form-label">Full Name</label>
+                                <label for="name" class="form-label">{{ i.full_name }}</label>
 
                                 <input type="text" name="name" id="name" class="form-control" placeholder="Your Name"
                                     required>
                             </div>
 
                             <div class="col-lg-6 col-12">
-                                <label for="email" class="form-label">Email Address</label>
+                                <label for="email" class="form-label">{{i.email_adress}}</label>
 
                                 <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control"
                                     placeholder="your@email.com" required>
                             </div>
 
                             <div class="col-lg-6 col-12">
-                                <label for="phone" class="form-label">Phone Number</label>
+                                <label for="phone" class="form-label">phone_number</label>
 
                                 <input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                     class="form-control" placeholder="123-456-7890">
@@ -196,7 +197,7 @@
                                 <textarea class="form-control" rows="4" id="message" name="message"
                                     placeholder=""></textarea>
                             </div>
-
+                            
                             <div class="col-lg-4 col-12 ms-auto">
                                 <button type="submit" class="form-control">Submit Request</button>
                             </div>
